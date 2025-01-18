@@ -3,10 +3,22 @@ import { useState } from 'react'
 const Home = () => {
   const [orderId, setOrderId] = useState('');
   const [gPayNumber, setGPayNumber] = useState('');
+  const [billImage, setBillImage] = useState<File | null>(null);
+  const [reviewImage, setReviewImage] = useState<File | null>(null);
+  const [productImage, setProductImage] = useState<File | null>(null);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    if (!orderId || !gPayNumber || !billImage || !reviewImage || !productImage) {
+      alert('All fields are required.');
+      return;
+    }
     // Handle form submission
+    setOrderId('');
+    setGPayNumber('');
+    setBillImage(null);
+    setReviewImage(null);
+    setProductImage(null);
   };
 
   return (
@@ -25,6 +37,7 @@ const Home = () => {
               value={orderId}
               onChange={(e) => setOrderId(e.target.value)}
               className="mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-blue-500 focus:outline-none w-50 md:w-[400px]"
+              required
             />
           </div>
 
@@ -40,6 +53,52 @@ const Home = () => {
               value={gPayNumber}
               onChange={(e) => setGPayNumber(e.target.value)}
               className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
+              required
+            />
+          </div>
+
+          <div className="flex flex-col mt-2">
+            <label htmlFor="billImage" className="hidden">
+              Bill Image
+            </label>
+            <input
+              type="file"
+              name="billImage"
+              id="billImage"
+              accept="image/*"
+              onChange={(e) => setBillImage(e.target.files ? e.target.files[0] : null)}
+              className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
+              required
+            />
+          </div>
+
+          <div className="flex flex-col mt-2">
+            <label htmlFor="reviewImage" className="hidden">
+              Review Image
+            </label>
+            <input
+              type="file"
+              name="reviewImage"
+              id="reviewImage"
+              accept="image/*"
+              onChange={(e) => setReviewImage(e.target.files ? e.target.files[0] : null)}
+              className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
+              required
+            />
+          </div>
+
+          <div className="flex flex-col mt-2">
+            <label htmlFor="productImage" className="hidden">
+              Product Image
+            </label>
+            <input
+              type="file"
+              name="productImage"
+              id="productImage"
+              accept="image/*"
+              onChange={(e) => setProductImage(e.target.files ? e.target.files[0] : null)}
+              className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-blue-500 focus:outline-none"
+              required
             />
           </div>
 
