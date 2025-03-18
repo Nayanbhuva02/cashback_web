@@ -38,14 +38,14 @@ const Home = () => {
     const formData = new FormData();
     formData.append('orderId', orderId);
     formData.append('phone', gPayNumber);
-    if (reviewImage) {
-      formData.append('reviewImage', reviewImage as Blob);
+    if (reviewImage !== null) {
+      formData.append('reviewImage', reviewImage);
     }
-    if (billImage) {
-      formData.append('billImage', billImage as Blob);
+    if (billImage !== null) {
+      formData.append('billImage', billImage);
     }
-    if (productImage) {
-      formData.append('productImage', productImage as Blob);
+    if (productImage !== null) {
+      formData.append('productImage', productImage);
     }
 
     try {
