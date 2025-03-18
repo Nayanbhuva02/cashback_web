@@ -43,13 +43,13 @@ const Home = () => {
     formData.append('orderId', orderId);
     formData.append('phone', gPayNumber);
     if (reviewImage) {
-      formData.append('reviewImage', reviewImage);
+      formData.append('reviewImage', reviewImage as Blob);
     }
     if (billImage) {
-      formData.append('billImage', billImage);
+      formData.append('billImage', billImage as Blob);
     }
     if (productImage) {
-      formData.append('productImage', productImage);
+      formData.append('productImage', productImage as Blob);
     }
 
     try {
