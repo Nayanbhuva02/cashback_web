@@ -42,9 +42,15 @@ const Home = () => {
     const formData = new FormData();
     formData.append('orderId', orderId);
     formData.append('phone', gPayNumber);
-    formData.append('reviewImage', reviewImage);
-    formData.append('billImage', billImage);
-    formData.append('productImage', productImage);
+    if (reviewImage) {
+      formData.append('reviewImage', reviewImage);
+    }
+    if (billImage) {
+      formData.append('billImage', billImage);
+    }
+    if (productImage) {
+      formData.append('productImage', productImage);
+    }
 
     try {
       const response = await fetch(`${API_URL}/reviews`, {
