@@ -27,10 +27,6 @@ const Home = () => {
     //fetch get api
     const res = await fetch('http://localhost:8000/api/v1/tst', {
       method: 'GET',
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        'Content-Type': 'application/json',
-      },
     })?.then((res) => {
       console.log('res: ', res);
 
