@@ -6,10 +6,5 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 3000,
-    cors: {
-      origin: "*",
-      methods: ["GET", "POST"],       // Specify allowed HTTP methods
-      allowedHeaders: ["Content-Type", "Authorization", "Accept"], // Specify 
-    },
   },
 });
