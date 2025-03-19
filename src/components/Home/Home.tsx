@@ -25,45 +25,45 @@ const Home = () => {
   const uploadReview = async () => {
 
     //fetch get api
-    const res = await fetch('http://localhost:8000/api/v1/tst', {
-      method: 'GET',
-    })?.then((res) => {
-      console.log('res: ', res);
+    // const res = await fetch('http://localhost:8000/api/v1/tst', {
+    //   method: 'GET',
+    // })?.then((res) => {
+    //   console.log('res: ', res);
 
-      return res.json()
-    });
-    console.log('data: ', res);
+    //   return res.json()
+    // });
+    // console.log('data: ', res);
 
-    const API_URL = "http://localhost:8000/api/v1"
-    const formData = new FormData();
-    formData.append('orderId', orderId);
-    formData.append('phone', gPayNumber);
-    if (reviewImage !== null) {
-      formData.append('reviewImage', reviewImage);
-    }
-    if (billImage !== null) {
-      formData.append('billImage', billImage);
-    }
-    if (productImage !== null) {
-      formData.append('productImage', productImage);
-    }
+    // const API_URL = "http://localhost:8000/api/v1"
+    // const formData = new FormData();
+    // formData.append('orderId', orderId);
+    // formData.append('phone', gPayNumber);
+    // if (reviewImage !== null) {
+    //   formData.append('reviewImage', reviewImage);
+    // }
+    // if (billImage !== null) {
+    //   formData.append('billImage', billImage);
+    // }
+    // if (productImage !== null) {
+    //   formData.append('productImage', productImage);
+    // }
 
-    try {
-      const response = await fetch(`${API_URL}/reviews`, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return await response.json();
-    } catch (error) {
-      console.error('Error uploading cashback review:', error);
-      throw error;
-    }
+    // try {
+    //   const response = await fetch(`${API_URL}/reviews`, {
+    //     method: 'POST',
+    //     body: formData,
+    //     headers: {
+    //       'Accept': 'application/json'
+    //     }
+    //   });
+    //   if (!response.ok) {
+    //     throw new Error('Network response was not ok');
+    //   }
+    //   return await response.json();
+    // } catch (error) {
+    //   console.error('Error uploading cashback review:', error);
+    //   throw error;
+    // }
   };
 
   return (
